@@ -1,0 +1,77 @@
+===============================================================================
+
+			Linux File System Simulation 2021
+
+==============================================================================
+
+Nume: Serban Bianca-Sanziana
+Email: bianca_serban25@yahoo.com
+
+==============================================================================
+
+Pentru implementare am folosit skelet-ul de cod pentru liste 
+simplu inlantuite preluat de la materia Structuri de Date.
+Am schimbat structurile dir si file, iar pointerii nu mai sunt 
+next, sunt pointeri la liste simplu inlantuite
+
+Functia touch: 
+    -> Daca nu exista niciun fisier creez unul si o noua lista in care il adaug 
+    -> Daca exista fisiere in lista verific daca exista vreun fisier cu numele 
+    dorit si daca nu exista adaug un nou file la sfarsit;
+
+Functia mkdir:
+    -> Daca nu exista niciun director creez unul si o lista noua in care il 
+    adaug;
+    -> Daca exista directoare verific daca exista directorul cu numele dorit, 
+    iar daca nu exista il adaug la finalul listei;
+
+Functia ls:
+    -> Parcurg intai lista de directoare si le afisez pe fiecare;
+    -> Dupa, parcurg lista de fisiere si le afisez si pe acestea;
+
+Functia rm:
+    -> Daca nu exista niciun fisier afisez mesajul corespunzator;
+    -> Daca exista fisiere parcurg lista si verific daca exista vreun fisier cu
+    numele dorit iar daca da, il sterg si eliberez memoria. Daca nu exista 
+    afisez mesajul corespunzator;
+
+Functia rmdir_rec:
+    -> Am creat o functie recursiva care elimina recursiv directorul 
+    care se doreste a fi sters, dar si lista de fisiere din acesta;
+
+Functia rmdir:
+    -> Daca nu exista niciun director afisez mesajul corespunzator;
+    -> Daca exista directoare parcurg lista si verific daca exista vreun 
+    director cu numele dorit iar daca da, il sterg recursiv si eliberez
+    memoria. Daca nu exista afisez mesajul corespunzator;
+
+Functia cd:
+    -> Daca dupa cd urmeaza '..' schimb directorul curent in directorul parinte
+    -> Daca urmeaza un director, iterez prin lista de directoare si verific 
+    daca exista un director cu numele corespunzator si daca da, schimb 
+    directorul curent;
+    -> Daca nu exista niciun director cu numele corespunzator afisez mesajul 
+    specific;
+
+Functia stop:
+    -> Sterg recursiv tot ce contine directorul home cu ajutorul functiei 
+    rmdir_rec si eliberez memoria;
+
+Functia pwd:
+    -> Creez o lista noua in care voi tine numele fiecarui director;
+    -> Cat timp exista un director parinte adaug fisierul curent la inceputul
+    listei;
+    -> Pentru a putea determina lungimea path-ului final am parcurs lista, am
+    determinat size-ul si am adaugat de fiecare data lungimea numelui 
+    directorului;
+    -> Dupa am alocat path si am parcurs lista, adaugand numele directorului
+    curent;
+
+
+Functia main:
+    -> Creez directorul root si creez o copie care va reprezenta directorul 
+    curent;
+    -> Citesc linia de input, obtin comanda si argumentul si interpretez
+    fiecare comanda;
+    
+===============================================================================
